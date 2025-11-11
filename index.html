@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🚀 Dev Path Finder v2 — Space Mission Edition</title>
+  <meta name="description"
+    content="แบบทดสอบ 10 ข้อ  หาเส้นทางสาย Dev " />
+  <link rel="stylesheet" href="./style.css" />
+  <script defer src="./js.js"></script>
+</head>
+
+<body>
+  <canvas id="stars"></canvas>
+  <div class="bloom" aria-hidden="true"></div>
+
+  <main>
+    <!-- Home -->
+    <section id="screen-home" class="screen active">
+      <div class="wrap">
+        <div class="panel home-hero">
+          <div class="title-xl">เริ่มภารกิจค้นหาว่าคุณเหมาะกับdevสายไหน</div>
+          <p class="subtitle">แบบทดสอบ 10 ข้อ
+            เมื่อเสร็จแล้วระบบจะวิเคราะห์สายที่เหมาะที่สุด </p>
+          <div class="home-cta">
+            <button id="btnStart" class="btn btn-accent" aria-label="เริ่มทำแบบทดสอบ">เริ่มภารกิจ / Start</button>
+            <button id="btnPreview" class="btn" aria-label="ดูคำถาม">ดูคำถาม</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz: one question per page -->
+    <section id="screen-quiz" class="screen">
+      <div class="wrap quiz">
+        <div class="panel">
+          <div class="panel-head">
+            <div style="flex:1">
+              <div class="title-xl">แบบทดสอบ</div>
+              <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap">
+                <div class="chip" id="chipIdx">ข้อที่ 1/10</div>
+                <div class="progress" style="flex:1; min-width:160px">
+                  <div class="bar" id="bar"></div>
+                </div>
+                <span class="chip" id="stage">เลือกคำตอบของคุณ</span>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px">
+              <button class="btn" id="btnBackHome">กลับหน้าแรก</button>
+              <button class="btn" id="btnReset">เริ่มใหม่</button>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="qbox" id="qbox">
+              <div class="qhead">
+                <div id="qtitle">—</div>
+                <div class="chip" id="qicon">🧩</div>
+              </div>
+              <div class="qbody" id="qopts"></div>
+            </div>
+            <div class="navRow">
+              <button class="btn" id="btnPrev">ย้อนกลับ</button>
+              <div style="display:flex; gap:8px">
+                <button class="btn" id="btnNext">ถัดไป</button>
+                <button class="btn btn-accent" id="btnSubmit" style="display:none">ประมวลผล</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Result -->
+    <section id="screen-result" class="screen">
+      <div class="wrap">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="title-xl" id="resTitle">ผลลัพธ์ของคุณ</div>
+              <div class="subtitle" id="headline">—</div>
+            </div>
+            <div style="display:flex; gap:8px">
+              <button class="btn" id="btnRetake">ทำใหม่</button>
+              <button class="btn btn-accent" id="btnShare">ความรู้เพิ่มเติม</button>
+            </div>
+          </div>
+          <div class="panel-body result-grid">
+            <div>
+              <div class="badge" style="margin-bottom:10px">คะแนนรวมตามสาย</div>
+              <div id="scoreList" style="display:grid; gap:8px"></div>
+            </div>
+            <div>
+              <div class="badge" style="margin-bottom:10px">คาแรกเตอร์ของคุณ</div>
+              <div id="charSlot" class="charWrap"></div>
+              <div id="desc" class="subtitle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+
+</html>
